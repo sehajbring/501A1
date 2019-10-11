@@ -193,20 +193,7 @@ public class Board{
 	
 	
 	public boolean communityCardCheck(int position) {
-		boolean community;
-	
-		
-		if(position == 11) {
-			community = true;
-
-		}
-		else if(position == 25){
-			community = true;
-		}
-		else {
-			community = false;
-		}
-		return community;
+		return (position == 11 || position == 25) ? true:false;
 	}
 
 
