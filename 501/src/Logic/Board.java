@@ -27,6 +27,8 @@ public class Board{
 	private ArrayList <Integer> rent = new ArrayList <Integer> ();
 	private ArrayList <Integer> value = new ArrayList <Integer> ();
 	
+	private List <Integer> pPostion = new ArrayList<Integer>(Arrays.asList(0, 7, 14, 21, 3, 18, 11, 25));
+
 	private Random newEvent = new Random();
 	
 	private String canadianPropertyNames = "src/TextFiles/CanadianNames.txt";
@@ -132,6 +134,14 @@ public class Board{
 	public String getPropertyValueTextFile() {
 		return propertyValueTextFile;
 	}
+	
+	/**
+	 * 
+	 * @return 
+	 */
+	public List<Integer> getpPostion() {
+		return pPostion;
+	}
 
 	public void setPoint(int aX, int aY){
 		for (int x = 0; x < coord.size(); x++){
@@ -155,7 +165,27 @@ public class Board{
 	 */ 
 	public boolean newTile(int position, Player subject){ 
 		boolean buyAble;
-		switch (position) {
+		
+		if (getpPostion().contains(position)) {
+			if (position == 3){
+				speicalTile(position, subject);
+			}
+			else if(position == 25){
+				speicalTile(position, subject);
+			}
+			else if(position == 21){
+				speicalTile(position, subject);
+			}
+			else if(position == 14){
+				speicalTile(position, subject);
+			}
+			else if(position == 18){
+				speicalTile(position, subject);
+			}
+			buyAble = false;
+		}
+		
+		/**switch (position) {
 		
 		
 		case 0:
@@ -311,7 +341,7 @@ public class Board{
 			}
 			buyAble = false;
 			break;
-		}
+		}*/
 		
 		if (gameBoard[position] == null){
 			buyAble = true;
