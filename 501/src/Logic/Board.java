@@ -27,7 +27,7 @@ public class Board{
 	private ArrayList <Integer> rent = new ArrayList <Integer> ();
 	private ArrayList <Integer> value = new ArrayList <Integer> ();
 	
-	private List <Integer> pPostion = new ArrayList<Integer>(Arrays.asList(0, 7, 14, 21, 3, 18, 11, 25));
+	private List <Integer> pPostion = new ArrayList<Integer>(Arrays.asList(0, 7, 14, 11, 3, 18, 21, 25));
 
 	private Random newEvent = new Random();
 	
@@ -149,7 +149,12 @@ public class Board{
 			coord.get(x).moveDown(aY);
 		}
 	}
-
+	
+	public List<Integer> returnIntSubList(List<Integer> list, int begining, int ending) {
+		return list.subList(begining, ending);
+	}
+	
+	
 	/**
 	 * @param proprtyName the proprtyName to set
 	 */
@@ -167,183 +172,13 @@ public class Board{
 		boolean buyAble;
 		
 		if (getpPostion().contains(position)) {
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
+			if((returnIntSubList(getpPostion(), 4, getpPostion().size()).contains(position))) {
+				speicalTile(position, subject);	
 			}
 			buyAble = false;
 		}
 		
-		/**switch (position) {
-		
-		
-		case 0:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-
-		case 7:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-
-		case 14:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-
-		case 21:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-
-		case 3:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-		
-
-		case 18:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-		
-
-		case 11:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-
-		case 25:
-			if (position == 3){
-				speicalTile(position, subject);
-			}
-			else if(position == 25){
-				speicalTile(position, subject);
-			}
-			else if(position == 21){
-				speicalTile(position, subject);
-			}
-			else if(position == 14){
-				speicalTile(position, subject);
-			}
-			else if(position == 18){
-				speicalTile(position, subject);
-			}
-			buyAble = false;
-			break;
-		}*/
-		
-		if (gameBoard[position] == null){
+		else if (gameBoard[position] == null){
 			buyAble = true;
 		}
 		else{
@@ -353,11 +188,14 @@ public class Board{
 		}
 		
 		return buyAble;
-
 	}
 
+	
+	
 	public boolean communityCardCheck(int position) {
 		boolean community;
+	
+		
 		if(position == 11) {
 			community = true;
 
