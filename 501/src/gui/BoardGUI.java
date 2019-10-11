@@ -718,14 +718,8 @@ public class BoardGUI extends JFrame{
 	 * Checks if the buy button has been pressed
 	 * @return buttonPressed: returns true if the roll button is pressed
 	 */
-	public boolean buyButtonPressed() {
-		boolean pressed;
-		if (buy.getModel().isPressed() == true) {
-			pressed = true;
-		}
-		else {
-			pressed = false;
-		}
-		return pressed;
+	public boolean 	buyButtonPressed() {
+		System.out.println("Pressed");
+		return (buy.getModel().isPressed()) ? true : false;
 	}
 }

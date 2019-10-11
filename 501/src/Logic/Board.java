@@ -155,7 +155,10 @@ public class Board{
 	 */ 
 	public boolean newTile(int position, Player subject){ 
 		boolean buyAble;
-		if (position == 0 ){
+		switch (position) {
+		
+		
+		case 0:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -172,9 +175,9 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
 
-		else if (position == 7){
+		case 7:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -191,9 +194,9 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
 
-		else if (position == 14){
+		case 14:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -210,9 +213,9 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
 
-		else if (position == 21){
+		case 21:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -229,9 +232,9 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
 
-		else if (position == 3){
+		case 3:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -248,9 +251,10 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
+		
 
-		else if (position == 18){
+		case 18:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -267,9 +271,10 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
+		
 
-		else if (position == 11){
+		case 11:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -286,9 +291,9 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
-		}
+			break;
 
-		else if (position == 25){
+		case 25:
 			if (position == 3){
 				speicalTile(position, subject);
 			}
@@ -305,9 +310,10 @@ public class Board{
 				speicalTile(position, subject);
 			}
 			buyAble = false;
+			break;
 		}
-
-		else if (gameBoard[position] == null){
+		
+		if (gameBoard[position] == null){
 			buyAble = true;
 		}
 		else{
@@ -315,6 +321,7 @@ public class Board{
 			gameBoard[position].addMoney(rent.get(position));
 			buyAble = false;
 		}
+		
 		return buyAble;
 
 	}
