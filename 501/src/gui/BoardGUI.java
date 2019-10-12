@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import javax.swing.*;
 
+import Logic.Player;
+
 /**
  * This class creates the main JFrame and and displays everything on that JFrame.
  * @author Sehjaveer Bring
@@ -433,32 +435,35 @@ public class BoardGUI extends JFrame{
 	 * @param rolledDice: the value the player rolled
 	 */
 	public void setDiceLabel (int rolledValue) {
-		switch (rolledValue){
-		case 0:	roll.setIcon(diceBlank);
-		break;
-
-		case 1: roll.setIcon(dice1);
-		break;
-
-		case 2: roll.setIcon(dice2);
-		break;
-
-		case 3: roll.setIcon(dice3);
-		break;
-
-		case 4: roll.setIcon(dice4);
-		break;
-
-		case 5: roll.setIcon(dice5);
-		break;
-
-		case 6: roll.setIcon(dice6);
-		break;
-		default:
+		if (rolledValue == 0) {
 			roll.setIcon(diceBlank);
-			break;
 		}
+		else if(rolledValue == 1) {
+			roll.setIcon(dice1);
+		}
+		else if(rolledValue == 2) {
+			roll.setIcon(dice2);
+		}
+		else if(rolledValue == 3) {
+			roll.setIcon(dice3);
+		}
+		else if(rolledValue == 4) {
+			roll.setIcon(dice4);
+		}
+		else if(rolledValue == 5) {
+			roll.setIcon(dice5);
+		}
+		else if(rolledValue == 6) {
+			roll.setIcon(dice6);
+		}
+		else {
+			roll.setIcon(diceBlank);
+		}
+		
 	}
+	
+	
+	
 
 	/**
 	 * Selects the board image depending on user's screen size
@@ -750,3 +755,5 @@ public class BoardGUI extends JFrame{
 		return (buy.getModel().isPressed()) ? true : false;
 	}
 }
+
+

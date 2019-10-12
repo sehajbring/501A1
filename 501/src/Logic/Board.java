@@ -40,6 +40,7 @@ public class Board{
 	private String rentTexTFile = "src/TextFiles/Rent.txt";
 	private String propertyValueTextFile = "src/TextFiles/PropertyValues.txt";
 	
+	private int tempCommRoll;
 
 	public Board() {}
 
@@ -149,6 +150,16 @@ public class Board{
 	public ArrayList<Integer> getSpecailPositions() {
 		return specailPositions;
 	}
+	
+
+	public int getTempCommRoll() {
+		return tempCommRoll;
+	}
+
+	public void setTempCommRoll(int tempCommRoll) {
+		this.tempCommRoll = tempCommRoll;
+	}
+
 
 	public void setPoint(int aX, int aY){
 		for (int x = 0; x < coord.size(); x++){
@@ -160,6 +171,7 @@ public class Board{
 	public List<Integer> returnIntSubList(List<Integer> list, int begining, int ending) {
 		return list.subList(begining, ending);
 	}
+	
 	
 	
 	/**
@@ -246,40 +258,16 @@ public class Board{
 	 */
 
 	public String communityCard(Player subject){
-		int x = newEvent.nextInt(5) +1;
-		String card = null;
-		if(x== 1){
-			card = "3 tiles backward";
-			subject.move(-3);
-			
-		}
-
-		else if(x == 2){
-			card = "Go to jail";
-			subject.setPosition(21);
-			
-		}
-
-		else if (x ==3){
-			card = "2 tile forward";
-			subject.move(2);
-			
-		}
-
-		else if (x == 4){
-			card = "Move to GO";
-			subject.setPosition(0);
-			
-		}
-
-		else{
-			card = "Bank gave you 200";
-			subject.addMoney(200);
-			
-		}
-		return card;
+		setTempCommRoll(newEvent.nextInt(5) +1);
+		RollOne r = new RollOne(subject, getTempCommRoll());
+		return r.backToIt();
 	}
-
+	
+	String commCardZero() {
+		return "3 tiles backward";
+	}
+	
+	
 	/**
 	 * Reads the property name text files and sets the array list
 	 * Reads the file for whichever board the user chooses
@@ -343,3 +331,6 @@ public class Board{
 	}
 
 }
+
+
+
