@@ -747,7 +747,6 @@ public class BoardGUI extends JFrame{
 	 * @return buttonPressed: returns true if the roll button is pressed
 	 */
 	public boolean 	buyButtonPressed() {
-		System.out.println("Pressed");
 		return (buy.getModel().isPressed()) ? true : false;
 	}
 }

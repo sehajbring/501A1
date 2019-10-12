@@ -28,6 +28,9 @@ public class Board{
 	private ArrayList <Integer> value = new ArrayList <Integer> ();
 	
 	private List <Integer> pPostion = new ArrayList<Integer>(Arrays.asList(0, 7, 14, 11, 3, 18, 21, 25));
+	private ArrayList <Integer> specailPositions = new ArrayList<Integer>(Arrays.asList(3, 18, 21, 25));
+	
+
 
 	private Random newEvent = new Random();
 	
@@ -142,6 +145,10 @@ public class Board{
 	public List<Integer> getpPostion() {
 		return pPostion;
 	}
+	
+	public ArrayList<Integer> getSpecailPositions() {
+		return specailPositions;
+	}
 
 	public void setPoint(int aX, int aY){
 		for (int x = 0; x < coord.size(); x++){
@@ -170,14 +177,17 @@ public class Board{
 	 */ 
 	public boolean newTile(int position, Player subject){ 
 		boolean buyAble;
+		System.out.println();
 		
 		if (getpPostion().contains(position)) {
-			if((returnIntSubList(getpPostion(), 4, getpPostion().size()).contains(position))) {
-				speicalTile(position, subject);	
+			for(int i =0; i < getSpecailPositions().size(); i++) {
+				if(getSpecailPositions().get(i) == subject.getPosition()) {
+					speicalTile(subject.getPosition(), subject);	
+				}
 			}
+
 			buyAble = false;
 		}
-		
 		else if (gameBoard[position] == null){
 			buyAble = true;
 		}
@@ -208,7 +218,13 @@ public class Board{
 			subject.addMoney(rent.get(position));
 		}
 		else{
-			subject.takeMoney(rent.get(position));
+
+			try {
+				subject.takeMoney(rent.get(subject.getPosition()));
+
+			} catch (Exception e) {
+
+			}
 		}
 	}
 
