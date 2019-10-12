@@ -306,46 +306,50 @@ public class BoardGUI extends JFrame{
 		communityCard.setVisible(false);
 		return communityCard;
 	}
+	
+	public void setButtonVis(JButton b, boolean vis) {
+		b.setVisible(vis);
+	}
 
 	/**
 	 * Sets the visibility of the "Buy" button
 	 * @param visible: a boolean for if to set the button to visible or not
 	 */
 
-	public void setBuyButtonVisibility(boolean visible) {
-		buy.setVisible(visible);
-	}
+//	public void setBuyButtonVisibility(boolean visible) {
+//		buy.setVisible(visible);
+//	}
 
 	/**
 	 * Sets the visibility of the "Community" button
 	 * @param visible: a boolean for if to set the button to visible or not
 	 */
-	public void setCommunityCardButtonVisibility(boolean visible) {
-		communityCard.setVisible(visible);
-	}
+//	public void setCommunityCardButtonVisibility(boolean visible) {
+//		communityCard.setVisible(visible);
+//	}
 	/**
 	 * Sets the visibility of the "Roll" button
 	 * @param visible: a boolean for if to set the button to visible or not
 	 */
-	public void setRollButtonVisibility(boolean visible) {
-		roll.setVisible(visible);
-	}
+//	public void setRollButtonVisibility(boolean visible) {
+//		roll.setVisible(visible);
+//	}
 
 	/**
 	 * Sets the visibility of the "Pass" button
 	 * @param visible: a boolean for if to set the button to visible or not
 	 */
-	public void setPassButtonVisibility (boolean visible) {
-		pass.setVisible(visible);
-	}
+//	public void setPassButtonVisibility (boolean visible) {
+//		pass.setVisible(visible);
+//	}
 
 	/**
 	 * Sets the visibility of the "Next turn" button
 	 * @param visible: a boolean for if to set the button to visible or not
 	 */
-	public void setNextButtonVisibility (boolean visible) {
-		nextTurn.setVisible(visible);
-	}
+//	public void setNextButtonVisibility (boolean visible) {
+//		nextTurn.setVisible(visible);
+//	}
 
 	/**
 	 * Sets the JLabel to display the current property name the player is on
@@ -712,6 +716,30 @@ public class BoardGUI extends JFrame{
 	 */
 	public ImageIcon getRegularBoard() {
 		return regularBoard;
+	}
+	
+	public JButton getBuy() {
+		return buy;
+	}
+
+	public JButton getExit() {
+		return exit;
+	}
+
+	public JButton getRoll() {
+		return roll;
+	}
+
+	public JButton getPass() {
+		return pass;
+	}
+
+	public JButton getNextTurn() {
+		return nextTurn;
+	}
+
+	public JButton getCommunityCard() {
+		return communityCard;
 	}
 
 	/**

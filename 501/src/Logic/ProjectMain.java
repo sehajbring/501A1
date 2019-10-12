@@ -108,7 +108,7 @@ public class ProjectMain implements ActionListener{
 		if (event.getActionCommand().equals("BUY")){
 			buyProperty();
 			afterBuy();
-			gui.setNextButtonVisibility(true);
+			gui.setButtonVis(gui.getNextTurn(),true);
 		}
 		//when a player click or presses the roll button it iterates whose turn and calls the nextPlayer method  
 		if (event.getActionCommand().equals("ROLL DICE")){
@@ -122,7 +122,7 @@ public class ProjectMain implements ActionListener{
 		}
 		if (event.getActionCommand().equals("PASS")){
 			afterBuy();
-			gui.setNextButtonVisibility(true);
+			gui.setButtonVis(gui.getNextTurn(),true);
 		}
 		
 		if (event.getActionCommand().equals("Chance")) {
@@ -151,14 +151,14 @@ public class ProjectMain implements ActionListener{
 		}else if (buyAble == false) {
 			boolean chance = game.communityCardCheck(subject.getPosition());
 			if (chance == true) {
-				gui.setCommunityCardButtonVisibility(true);
-				gui.setNextButtonVisibility(false);
+				gui.setButtonVis(gui.getCommunityCard(),true);
+				gui.setButtonVis(gui.getNextTurn(),false);
 				
 				drawPerson();
 			}
 			else {
 				afterBuy();
-				gui.setNextButtonVisibility(true);
+				gui.setButtonVis(gui.getNextTurn(),true);
 			}
 		}
 		buyAble = false;
@@ -220,7 +220,7 @@ public class ProjectMain implements ActionListener{
 		drawAvatar();
 		if (iterate < plName.getNumOfPlayers()) {
 			nextPlayer(iterate);
-			gui.setNextButtonVisibility(false);
+			gui.setButtonVis(gui.getNextTurn(),false);
 			gui.rollButton(this,true, valueRolled);
 			//rollDie = false;
 		}
@@ -237,8 +237,8 @@ public class ProjectMain implements ActionListener{
 		guiDisplay(person);
 		drawPerson();
 		afterBuy();
-		gui.setNextButtonVisibility(true);
-		gui.setCommunityCardButtonVisibility(false);
+		gui.setButtonVis(gui.getNextTurn(),true);
+		gui.setButtonVis(gui.getCommunityCard(),false);
 		drawPerson();
 	}
 	
@@ -258,16 +258,16 @@ public class ProjectMain implements ActionListener{
 	 *makes the buy/pass buttons invisible after use.
 	 */
 	public void afterBuy(){
-		gui.setBuyButtonVisibility(false);
-		gui.setPassButtonVisibility(false);
+		gui.setButtonVis(gui.getBuy(),false);
+		gui.setButtonVis(gui.getPass(),false);
 	}
 	
 	/**
 	 * makes the buy/pass buttons visible for use.
 	 */
 	public void beforeBuy(){
-		gui.setBuyButtonVisibility(true);
-		gui.setPassButtonVisibility(true);
+		gui.setButtonVis(gui.getBuy(),true);
+		gui.setButtonVis(gui.getPass(),true);
 	}
 	
 	/**
@@ -304,7 +304,7 @@ public class ProjectMain implements ActionListener{
 		gui.setRentLabel(game.getRent(subject.getPosition()));
 		gui.setMoneyLabel(subject.getMoney());
 		gui.setPlayerNameLabel(subject.getName());
-		
+				
 		if (game.getPlayer(subject.getPosition()) == null){
 			gui.setOwnerLabel("None");
 		}else{
