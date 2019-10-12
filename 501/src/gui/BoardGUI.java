@@ -435,28 +435,28 @@ public class BoardGUI extends JFrame{
 	 * @param rolledDice: the value the player rolled
 	 */
 	public void setDiceLabel (int rolledValue) {
-		if (rolledValue == 0) {
+		switch(rolledValue) {
+		case 0:
 			roll.setIcon(diceBlank);
-		}
-		else if(rolledValue == 1) {
+		case 1:
 			roll.setIcon(dice1);
-		}
-		else if(rolledValue == 2) {
+			break;
+		case 2:
 			roll.setIcon(dice2);
-		}
-		else if(rolledValue == 3) {
+			break;
+		case 3:
 			roll.setIcon(dice3);
-		}
-		else if(rolledValue == 4) {
+			break;
+		case 4:
 			roll.setIcon(dice4);
-		}
-		else if(rolledValue == 5) {
+			break;
+		case 5:
 			roll.setIcon(dice5);
-		}
-		else if(rolledValue == 6) {
+			break;
+		case 6:
 			roll.setIcon(dice6);
-		}
-		else {
+			break;
+		default:
 			roll.setIcon(diceBlank);
 		}
 		
